@@ -1,0 +1,21 @@
+{
+  "name": "todos-api",
+  "version": "1.0.0",
+  "description": "Basic todos api for tutorials",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.9",
+    "morgan": "^1.7.0",
+    "object-assign": "^4.1.0"
+  }
+}
