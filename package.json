@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon index.js"
   },
+  "engines": {
+    "node": "6.3.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,6 +19,7 @@
     "express": "^4.14.0",
     "mongoose": "^4.5.9",
     "morgan": "^1.7.0",
+    "nodemon": "^1.10.0",
     "object-assign": "^4.1.0"
   }
 }

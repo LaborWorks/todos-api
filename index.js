@@ -1,13 +1,13 @@
 // ENV Variables
-require('dotenv').config()
+require('dotenv').config({ silent: true })
 
 // Core
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+var path = require('path');
 
-// var nts
-var config = require('./config');
+// Constants
 var port = process.env.PORT || 8094;
 var host = process.env.HOST || 'localhost';
 
@@ -29,6 +29,11 @@ app.use(function(req, res, next) {
 
 // Middleware
 app.use(morgan('dev'));
+
+// Home Route for Documentation
+ app.use(express.static(path.resolve(`${__dirname}/docs`), {
+  extensions: ['html']
+}));
 
 // TodoRoutes
 var routes = require('./routes');

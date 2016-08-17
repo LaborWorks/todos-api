@@ -1,6 +1,6 @@
 // Helpers
 var assign = require('object-assign');
-var Todo = require('./models');
+var Todo = require('../models');
 
 /**
  * Get All Todos

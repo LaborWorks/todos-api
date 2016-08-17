@@ -1,0 +1,219 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Todos API",
+        "description": "Basic todos api to use during the learning phase of various modern front-end tools.",
+        "version": "0.0.1"
+    },
+    "host": "todos-api-2016.herokuapp.com",
+    "schemes": [
+        "https"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "paths": {
+        "/todos": {
+            "get": {
+                "summary": "Returns list of Todos",
+                "tags": [
+                    "Todos"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of Todos",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todo"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                }
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/todoForm"
+                        }
+                    }
+                ],
+                "summary": "Creates a Todo.",
+                "tags": [
+                    "Todos"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created Todo item.",
+                        "schema": {
+                            "$ref": "#/definitions/todo"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                }
+            }
+        },
+        "/todos/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "summary": "Returns a Todo.",
+                "tags": [
+                    "Todos"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Single Todo item.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todo"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                }
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/todoForm"
+                        }
+                    }
+                ],
+                "summary": "Updates an existing Todo.",
+                "tags": [
+                    "Todos"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated Todo item.",
+                        "schema": {
+                            "$ref": "#/definitions/todo"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                }
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "summary": "Deletes a Todo.",
+                "tags": [
+                    "Todos"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content."
+                    },
+                    "404": {
+                        "description": "Not found."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "todo": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "description": "Unique identifier for a Todo."
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Title of a Todo."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of a Todo."
+                },
+                "completed": {
+                    "type": "boolean",
+                    "description": "Completion status of a Todo."
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Creation date of a Todo."
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Last update date of a Todo."
+                }
+            }
+        },
+        "todoForm": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Title of a Todo."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of a Todo."
+                },
+                "completed": {
+                    "type": "boolean",
+                    "description": "Completion status of a Todo"
+                }
+            },
+            "required": [
+                "title"
+            ]
+        }
+    }
+}
