@@ -19,4 +19,4 @@ $ npm start
 ```
 
 ## Usage
-Please check [todos-api-2016.herokuapp.com](https://todos-api-2016.herokuapp.com/) for API docs.
+Please refer to [todos-api-2016.herokuapp.com](https://todos-api-2016.herokuapp.com/) for API docs.
